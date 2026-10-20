@@ -1,0 +1,548 @@
+/* 首页与下载页的样式。docs/pmdir/ 是一个独立子站，它自己的 styles.css 保持原样，
+   这里只把同一套配色复制了一份，两边共用同一套变量名，看起来才像同一个站。
+   两边都不要出现任何 http(s) 远程资源：一行远程字体就会让「本应用不联网」那句话打折。 */
+
+:root {
+  /* —— 与 docs/pmdir/styles.css 逐字一致的配色 —— */
+  --ink: #14202b;
+  --ink-soft: #46586a;
+  --line: #d8e0e8;
+  --bg: #ffffff;
+  --bg-soft: #f4f7fa;
+  --primary: #2e86c1;
+  --primary-ink: #ffffff;
+  --warn-bg: #fff8e6;
+  --warn-line: #f0d9a0;
+  --warn-ink: #6d4c00;
+  --code-bg: #eef2f6;
+
+  /* —— 布局宽度 —— */
+  --wrap: 70rem;
+  --wrap-narrow: 44rem;
+
+  /* —— 截图框：固定色，不随主题变（画面属于软件，不属于页面） —— */
+  --shot-edge-light: #d9dfe6;
+  --shot-edge-dark: #2a313c;
+  --shot-shadow: 0 1px 2px rgba(20, 32, 43, 0.1), 0 12px 30px rgba(20, 32, 43, 0.13);
+
+  /* —— Download2 截图自带的「桌面」底色（固定灰，深浅主题都一样） —— */
+  --surface-desktop: #6e6e6e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e6edf3;
+    --ink-soft: #a9b8c6;
+    --line: #30394a;
+    --bg: #161a20;
+    --bg-soft: #1d232b;
+    --primary: #5aa9d6;
+    --primary-ink: #0d1117;
+    --warn-bg: #2a2415;
+    --warn-line: #5c4f24;
+    --warn-ink: #e8d5a2;
+    --code-bg: #222a34;
+
+    --shot-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC',
+    'Microsoft YaHei', sans-serif;
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.wrap--narrow {
+  max-width: var(--wrap-narrow);
+}
+
+[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+/* ---------- 顶部条 ---------- */
+
+.site {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.site__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brandmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brandmark img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.sitenav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem 1rem;
+  font-size: 0.9375rem;
+}
+
+.sitenav .lang {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- 通用排版（与 docs/pmdir/styles.css 保持一致） ---------- */
+
+.brand {
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 1.875rem;
+  line-height: 1.3;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-size: 1.1875rem;
+  margin: 2.25rem 0 0.625rem;
+  padding-top: 0.25rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.375rem;
+}
+
+p,
+li {
+  margin: 0.5rem 0;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.meta span + span::before {
+  content: '·';
+  margin: 0 0.5em;
+}
+
+.lang {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+}
+
+.lede {
+  font-size: 1.0625rem;
+  color: var(--ink);
+  background: var(--bg-soft);
+  border-left: 3px solid var(--primary);
+  padding: 0.875rem 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.note {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-line);
+  color: var(--warn-ink);
+  padding: 0.875rem 1rem;
+  margin: 1.25rem 0;
+  font-size: 0.9375rem;
+}
+
+code,
+kbd {
+  background: var(--code-bg);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.875em;
+  /* 首页的要点栏比 pmdir 的文档列窄，break-all 会把 .crdownload 拆成两行 */
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 0.875rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  word-break: normal;
+}
+
+a {
+  color: var(--primary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  font-size: 0.9375rem;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.625rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--bg-soft);
+  font-weight: 600;
+}
+
+.contact {
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding: 1rem;
+  margin: 1.25rem 0;
+}
+
+.contact .mail {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+footer.doc {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+footer.doc nav {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- 卡片 ---------- */
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 40rem) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1rem 1.125rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+a.card:hover {
+  border-color: var(--primary);
+  background: var(--bg-soft);
+}
+
+.card h2 {
+  margin: 0 0 0.375rem;
+  padding: 0;
+  font-size: 1.0625rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.card--pending .card__note {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.card .ver {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-left: 0.25rem;
+}
+
+/* ---------- 按钮 ---------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 1.5rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 0.9375rem;
+  background: var(--bg);
+}
+
+.btn:hover {
+  border-color: var(--primary);
+}
+
+.btn--primary {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border-color: var(--primary);
+}
+
+.btn--pending {
+  color: var(--ink-soft);
+  background: var(--bg-soft);
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.pending {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--warn-ink);
+  margin: 0.5rem 0;
+}
+
+.pending__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--warn-line);
+  flex: none;
+}
+
+/* ---------- 主页版式 ---------- */
+
+.hero {
+  padding-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-size: 2.125rem;
+  margin-bottom: 1rem;
+}
+
+.section {
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+}
+
+.section > h2:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.split {
+  display: grid;
+  gap: 2rem 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 64rem) {
+  .split {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+}
+
+.hicon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  vertical-align: -0.5em;
+  margin-right: 0.5rem;
+}
+
+.feats {
+  display: grid;
+  gap: 0.25rem 2rem;
+  margin: 1.25rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .feats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feats li {
+  margin: 0.5rem 0;
+  padding-left: 1.125rem;
+  position: relative;
+  font-size: 0.9375rem;
+}
+
+.feats li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6875rem;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.prose {
+  max-width: var(--wrap-narrow);
+}
+
+/* ---------- 截图 ---------- */
+
+/* 截图是窗口的照片：直角 + 一圈属于它自己的边 + 一层投影。
+   不用圆角 —— 圆角会在四个角露出页面底色，浅色页上是白点、深色页上是黑点。 */
+.shot {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--shot-edge-light);
+  box-shadow: var(--shot-shadow);
+}
+
+.shot--dark {
+  border-color: var(--shot-edge-dark);
+}
+
+.shot--fill {
+  width: 100%;
+}
+
+.shotfig {
+  margin: 1.75rem 0 0;
+}
+
+.shotfig figcaption {
+  margin-top: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+.shotrow {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.75rem 0 0;
+}
+
+@media (min-width: 64rem) {
+  .shotrow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Download2 的截图自带一片灰「桌面」底。让它保持原样，
+   外层只补同样颜色的底，四个角就接缝不上。 */
+.shotbox {
+  margin: 0;
+  background: var(--surface-desktop);
+  overflow: hidden;
+}
+
+.shotbox img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.pillfig {
+  margin: 2rem 0 0;
+}
+
+.pillfig__box {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.pillfig figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  text-align: center;
+}

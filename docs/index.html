@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>johnsmith9th 的小工具 — PMDir 与 Download2</title>
+    <meta
+      name="description"
+      content="两个跑在你自己电脑上的 Windows 小工具：PMDir 给本地文件打标签并做全文检索，Download2 把下载完成的文件自动收进归档目录。免费，功能不设限制。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap site__bar">
+        <a class="brandmark" href="index.html">
+          <img src="assets/pmdir/icon.png" width="32" height="32" alt="" decoding="async" />
+          <span>johnsmith9th</span>
+        </a>
+        <nav class="sitenav" aria-label="站内导航">
+          <a href="#pmdir">PMDir</a>
+          <a href="#download2">Download2</a>
+          <a href="#download">下载</a>
+          <a href="#about">关于</a>
+          <span class="lang">本页语言：<strong>中文</strong> ｜ <a href="index-en.html">English</a></span>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <section id="top" class="hero">
+        <p class="brand">johnsmith9th</p>
+        <h1>两个跑在你电脑上的 Windows 小工具</h1>
+        <p class="lede">
+          一个帮项目经理把项目文件管得住：给本地文件打上你自己的一套标签，
+          再到 Office 和 PDF 的正文里搜关键词。另一个替人把下载完的文件收进归档目录。
+          两个都是本地软件，不用注册，不联网，也不上传任何数据。
+        </p>
+        <p class="meta">
+          <span>Windows 桌面应用</span> <span>免费，功能不设限制</span>
+          <span>PMDir v0.1.0</span> <span>Download2 v0.1.0</span>
+        </p>
+
+        <figure class="shotfig">
+          <img
+            class="shot shot--fill"
+            src="assets/pmdir/browse.png"
+            width="1258"
+            height="762"
+            fetchpriority="high"
+            decoding="async"
+            alt="PMDir 的浏览与标签视图：左侧是项目文件夹与标签面板，中间是文件列表，右侧是标签管理"
+          />
+          <figcaption>PMDir 的浏览与标签视图。截图中的项目与文件是演示样例数据。</figcaption>
+        </figure>
+      </section>
+
+      <section id="pmdir" class="section">
+        <p class="eyebrow">产品 01</p>
+        <h2>
+          <img class="hicon" src="assets/pmdir/icon.png" width="40" height="40" alt="" decoding="async" />PMDir — 本地文件标签与全文检索
+        </h2>
+        <p class="lede">
+          把本地项目文件夹登记进来，在文件树上打一套只属于你的标签，
+          把标签条件组合成查询，再直接搜 Office 与 PDF 的正文。
+          全程离线：不开网络、不收集、不上传。
+        </p>
+
+        <ul class="feats">
+          <li><strong>不联网、不收集、不上传。</strong>没有账号，没有遥测，界面不加载任何远程字体或图片。</li>
+          <li><strong>标签可以分分类。</strong>每个分类有颜色、有排序，可以带值，分类之间还能互斥。</li>
+          <li><strong>查询用 AND / OR / NOT 组合</strong>，改一个条件，命中数当场就变。</li>
+          <li>
+            <strong>正文能搜。</strong>docx / xlsx / pptx / PDF / md / txt / csv 都行；
+            .doc / .xls / .ppt 这几种老格式也能读，<strong>不需要装 Office</strong>。
+          </li>
+          <li><strong>排序跟 Windows 资源管理器一致：</strong>拼音序、自然数字序。</li>
+          <li><strong>标签跟着文件走。</strong>复制、粘贴之后，标签还在。</li>
+          <li><strong>能导出 CSV</strong>，导出时做了表格公式注入的防护。</li>
+          <li><strong>zip 与 7z 的读写是内置的</strong>（压成 7z 需要系统里装有 7z.exe）。</li>
+          <li><strong>删除只进回收站</strong>，没有永久删除这一说。</li>
+          <li><strong>库文件和索引坏了能自己修。</strong></li>
+          <li><strong>三种界面语言</strong>（简中、繁中、英文）、三套配色（跟随系统 / 浅色 / 深色）。</li>
+          <li><strong>「折叠视图」</strong>能把整个窗口收成一条横条。</li>
+        </ul>
+
+        <p class="prose">
+          「索引 N%」那一栏说实话：它说的是有多少文件已经抽过正文，不是索引层的健康度；
+          索引层这次没能打开时，它显示的是「索引 —」。
+        </p>
+
+        <div class="shotrow">
+          <figure class="shotfig">
+            <img
+              class="shot shot--fill shot--dark"
+              src="assets/pmdir/query.png"
+              width="1258"
+              height="762"
+              loading="lazy"
+              decoding="async"
+              alt="PMDir 的查询视图：标签条件用 AND 与 OR 组合，命中 5024 条，列表右侧带索引状态列"
+            />
+            <figcaption>查询视图：条件用 AND 与 OR 组合，命中数实时变。</figcaption>
+          </figure>
+          <figure class="shotfig">
+            <img
+              class="shot shot--fill"
+              src="assets/pmdir/fulltext.png"
+              width="1258"
+              height="762"
+              loading="lazy"
+              decoding="async"
+              alt="PMDir 的全文检索：搜索“需求”命中 5 条，文件名与类型列里能看到高亮"
+            />
+            <figcaption>全文检索：搜的是文档正文，不是文件名。</figcaption>
+          </figure>
+        </div>
+
+        <figure class="shotfig">
+          <img
+            class="shot shot--fill shot--dark"
+            src="assets/pmdir/settings.png"
+            width="1258"
+            height="762"
+            loading="lazy"
+            decoding="async"
+            alt="PMDir 的设置页：界面语言、界面配色、索引与关于"
+          />
+          <figcaption>设置页：界面语言、配色、索引策略与关于信息。</figcaption>
+        </figure>
+
+        <p class="actions">
+          <a class="btn btn--primary" href="downloads.html#dl-pmdir">PMDir 下载</a>
+          <a class="btn" href="pmdir/index.html">隐私与支持</a>
+        </p>
+      </section>
+
+      <section id="download2" class="section">
+        <p class="eyebrow">产品 02</p>
+        <h2>Download2 — 下载完就自己归档</h2>
+        <p class="lede">
+          一条 236 × 40 的小条子盯着你的「下载」文件夹。文件下完了，它就把这个文件
+          搬进你指定的归档目录，可以按下载日期再分子目录。
+          它不是下载管理器，也不加速下载。
+        </p>
+
+        <div class="split">
+          <div>
+            <ul class="feats">
+              <li>
+                <strong>判断「下载完了」有七条：</strong>静置窗口（默认 900 毫秒，可调 200–5000 毫秒）、
+                连续两次采样的文件大小与修改时间不变、没有临时文件还指着它、锁探测、
+                临时文件名单（<code>.crdownload</code> <code>.part</code> <code>.download</code>
+                <code>.partial</code> <code>.tmp</code> <code>.idmdownload</code>
+                <code>.__partialdownload</code>、<code>~$*</code>）、大小不为 0、
+                且不在启动时的存量名单里。
+              </li>
+              <li><strong>没下完的文件绝不搬。</strong></li>
+              <li>
+                <strong>同名不覆盖。</strong>自动加 <code>(1)</code>、<code>(2)</code>，最多到 999 ——
+                因为 Windows 重命名会悄悄吃掉已经存在的目标。
+              </li>
+              <li>
+                <strong>同盘移动是两次重命名，一个字节都不拷。</strong>
+                跨盘才退回复制路径，并且要在删源之前做一次字节数核对。
+              </li>
+              <li>
+                <strong>崩了能续上。</strong>追加写的 <code>pending.jsonl</code> 账本配一张纯函数重放表，
+                下次启动把搬了一半的文件接回去。
+              </li>
+              <li>
+                <strong>有些地方它不搬。</strong>「下载」文件夹里面、盘根目录、
+                <code>\Windows</code> 与 Program Files，都拒绝。
+              </li>
+              <li><strong>设置坏了会隔离，不会悄悄重置。</strong></li>
+              <li>
+                <strong>只有一个窗口。</strong>无边框、置顶、透明、不进任务栏；
+                每项设置自动保存，没有「保存」按钮。
+              </li>
+              <li><strong>中英双语，浅色深色两套。</strong></li>
+            </ul>
+
+            <p class="prose">
+              <strong>它不做什么：</strong>它没有下载引擎，不加速、不支持 BT 或 ED2K，没有断点续传，
+              没有浏览器插件，没有插件系统，没有系统托盘图标，也还不提供安装包与自动更新。
+            </p>
+
+            <p class="actions">
+              <a class="btn btn--primary" href="downloads.html#dl-download2">Download2 下载</a>
+            </p>
+          </div>
+
+          <div>
+            <figure class="shotfig">
+              <div class="shotbox">
+                <img
+                  src="assets/download2/panel-zh.png"
+                  width="360"
+                  height="386"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Download2 的常规面板：转移目录、浏览与打开按钮、按下载日期分子目录、搬完提示时长，下方是折叠后的状态条"
+                />
+              </div>
+              <figcaption>常规面板。原尺寸显示，没有放大。</figcaption>
+            </figure>
+
+            <figure class="shotfig">
+              <div class="shotbox">
+                <img
+                  src="assets/download2/advanced-zh.png"
+                  width="360"
+                  height="386"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Download2 的高级面板：监控目录、静置阈值 900 毫秒、最长等待 600 秒、界面语言"
+                />
+              </div>
+              <figcaption>高级面板：静置阈值 900 毫秒，最长等待 600 秒。</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <figure class="pillfig">
+          <div class="shotbox pillfig__box">
+            <img
+              src="assets/download2/pill-zh.png"
+              width="236"
+              height="40"
+              loading="lazy"
+              decoding="async"
+              alt="Download2 折叠后的状态条，236 × 40 像素"
+            />
+          </div>
+          <figcaption>折叠之后，窗口就只剩这一条：236 × 40 像素。</figcaption>
+        </figure>
+
+      </section>
+
+      <section id="download" class="section">
+        <h2>下载</h2>
+        <p class="lede">
+          两个软件都是免费的，功能不设任何限制。但目前还没有可以直接下载的公开链接。
+          打包和校验做完之前，下载页上写的是状态，不是死链接。
+        </p>
+        <p class="actions">
+          <a class="btn btn--primary" href="downloads.html">前往下载页</a>
+          <a class="btn" href="downloads-en.html">Download page (English)</a>
+        </p>
+        <p class="meta">
+          <span>PMDir v0.1.0</span> <span>Download2 v0.1.0</span> <span>免费，功能不设限制</span>
+        </p>
+      </section>
+
+      <section id="about" class="section">
+        <h2>关于</h2>
+        <div class="prose">
+          <p>
+            这些小工具是我一个人（johnsmith9th）做的。PMDir 是给我自己 ——
+            以及和我一样，一份项目里塞着几百个文档、一堆文件夹和标签要管的人 —— 用的。
+          </p>
+          <div class="contact">
+            <p class="mail">邮箱：<a href="mailto:johnsmith9th@yahoo.com">johnsmith9th@yahoo.com</a></p>
+            <p>这是唯一的联系渠道，没有电话、没有在线聊天、没有论坛。来信我都会看。</p>
+          </div>
+          <p>
+            这个站和它上面的每一页都是纯静态 HTML：没有脚本、没有 Cookie、没有分析代码，
+            也不加载任何远程字体、远程图片或远程脚本。页面上的截图和图标都是随本站一起存放的本地文件，
+            跟本站一起被下载、一起被缓存。
+          </p>
+        </div>
+      </section>
+
+      <footer class="doc">
+        <nav>
+          <a href="index.html">首页</a> ｜ <a href="downloads.html">下载</a> ｜
+          <a href="pmdir/index.html">PMDir 隐私与支持</a> ｜
+          <a href="index-en.html">English</a>
+        </nav>
+        <p>
+          纯静态 HTML：没有脚本、没有 Cookie、没有分析代码，也不加载任何远程字体、远程图片或远程脚本。
+          截图与图标都是本地文件。两个软件都是免费的，功能不设限制。
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

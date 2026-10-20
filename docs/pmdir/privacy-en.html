@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PMDir Privacy Policy</title>
+    <meta
+      name="description"
+      content="PMDir is a fully offline local file management tool: no network, no collection, no upload. This policy explains where your files and metadata live, what PMDir does not do, and how to remove everything."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="doc">
+        <p class="brand">PMDir</p>
+        <h1>Privacy Policy</h1>
+        <p class="meta">
+          <span>Effective 2026-10-19</span> <span>Applies to all PMDir versions</span>
+        </p>
+        <p class="lang">Language: <strong>English</strong> ｜ <a href="privacy.html">中文</a></p>
+      </header>
+
+      <p class="lede">
+        PMDir is a <strong>fully offline</strong> local file management tool. It does not use the network,
+        does not collect anything and does not upload anything, and it has no accounts. Your file names,
+        folder structure and indexed document text are written only to a database on your own disk.
+      </p>
+
+      <h2>1. Nothing leaves your computer</h2>
+      <p>To be concrete, PMDir does not do any of the following:</p>
+      <ul>
+        <li>no telemetry, no crash reports, no usage analytics;</li>
+        <li>no requests to any server, and no push notifications;</li>
+        <li>
+          every style sheet and script the interface needs is compiled into the app —
+          <strong>no remote fonts, no remote images, no third-party CDN resources</strong>;
+        </li>
+        <li>no advertising SDK, no analytics SDK, no tracking code of any kind;</li>
+        <li>
+          no sign-up and no sign-in, so there is no user profile for anyone to look up;
+        </li>
+        <li>
+          extracting document text, building the index and searching all happen on your machine —
+          your document contents are never sent anywhere.
+        </li>
+      </ul>
+
+      <h2>2. Where your data lives</h2>
+      <p>All of PMDir's data sits in a directory you control, in three parts:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Directory</th>
+            <th>What it holds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>data\</code></td>
+            <td>
+              The metadata database (<code>meta.sqlite</code>): the paths of the project folders you added,
+              the names, sizes and modification times of the files it scanned, the tags you applied, and the
+              text-extraction state of each file.
+            </td>
+          </tr>
+          <tr>
+            <td><code>index\</code></td>
+            <td>
+              The local full-text index used for content search. Deleting it only costs you a re-index;
+              it never touches your original files.
+            </td>
+          </tr>
+          <tr>
+            <td><code>logs\</code></td>
+            <td>
+              Day-by-day run logs, written on your machine only and never sent anywhere automatically.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The <strong>root</strong> of those three directories defaults to the folder holding the program itself
+        (portable layout: <code>data\</code>, <code>index\</code> and <code>logs\</code> next to
+        <code>pmdir.exe</code>), and you can point it at any directory you have access to under
+        <strong>Settings → Data location</strong>. The <strong>Microsoft Store edition</strong> installs into a
+        folder that is read-only for the app, so there it defaults to <code>%APPDATA%\PMDir</code>; when that
+        fallback happens, the Settings page tells you so directly.
+      </p>
+
+      <p>
+        After each successful start, the app keeps one local backup copy of the database under
+        <code>~/.pmdir/&lt;library name&gt;/</code>, so a corrupted library can be recovered.
+        It is a local copy — <strong>it is not uploaded anywhere</strong>.
+      </p>
+
+      <h2>3. Capabilities PMDir deliberately does not have</h2>
+      <ul>
+        <li>
+          <strong>The database is not encrypted.</strong> It is an ordinary local database file, so anyone who can
+          read that file can read the file names and paths inside it. Keep your data directory under your own
+          account, or protect it with full-disk / volume encryption (for example BitLocker).
+        </li>
+        <li>
+          <strong>No cloud sync, no remote locate, no remote wipe.</strong> Moving to another computer means copying
+          the data directory yourself.
+        </li>
+        <li>
+          <strong>PMDir never uploads or transmits your actual files.</strong> Deletion goes through the system
+          Recycle Bin, not over a network.
+        </li>
+      </ul>
+
+      <h2>4. The password you type for a protected archive</h2>
+      <p>
+        When you open or extract a password-protected archive, PMDir asks for the password at the step that needs it.
+        <strong>That password is used for that operation only — it is not stored in the database and not written to
+        the logs.</strong>
+      </p>
+
+      <h2>5. Third-party components and your system</h2>
+      <p>
+        PMDir is built on a number of open-source components (UI framework, database engines, full-text search,
+        archive and legacy document-format readers). The complete list with each licence is on the
+        <strong>Acknowledgements</strong> page inside the app and in <code>THIRD_PARTY_NOTICES.txt</code> next to the
+        program. All of them run on your machine and <strong>none of them reports data anywhere because of PMDir</strong>.
+      </p>
+      <div class="note">
+        Two facts that involve your system rather than PMDir, stated plainly:
+        <strong>the Microsoft Store itself checks for app updates and validates licences</strong>, and PMDir's
+        interface is rendered by the <strong>WebView2 runtime</strong> that Microsoft maintains and may update on its
+        own. Both happen at the operating-system level, are not initiated by PMDir, and do not involve any of your
+        PMDir data.
+      </div>
+
+      <h2>6. How to remove everything</h2>
+      <p>
+        Uninstalling PMDir never touches your own files. What it may leave behind is the database, the index, the logs
+        and the backups.
+        <strong>Microsoft Store edition:</strong> the Store does not run our uninstaller, so to clear everything delete
+        these two locations by hand:
+      </p>
+      <pre><code>%APPDATA%\PMDir          database (data\meta.sqlite), full-text index, logs
+%USERPROFILE%\.pmdir     the per-library pre-start backups</code></pre>
+      <p>
+        <strong>Portable edition:</strong> delete the program folder.
+        <strong>Installer (NSIS) edition:</strong> the uninstaller asks whether to keep the backups and removes the
+        backup tree under <code>~\.pmdir</code>; if you pointed the data directory somewhere else, delete that location
+        yourself.
+      </p>
+      <p>
+        Once those directories are gone, nothing about you remains — we never kept a copy in the first place.
+      </p>
+
+      <h2>7. Changes to this policy</h2>
+      <p>
+        The date at the top of this page is its version. If the policy changes we will update this page. Because PMDir
+        does not use the network, <strong>it cannot and will not show you a "policy updated" notice</strong> — please
+        come back and check when you need to.
+      </p>
+
+      <h2>8. Contact</h2>
+      <div class="contact">
+        <p>Author: johnsmith9th</p>
+        <p class="mail">
+          Email: <a href="mailto:johnsmith9th@yahoo.com">johnsmith9th@yahoo.com</a>
+        </p>
+        <p>
+          Questions about privacy (for example "is this sentence wrong?") are welcome. The
+          <a href="support-en.html">support page</a> lists what is useful to include in a message.
+        </p>
+      </div>
+
+      <footer class="doc">
+        <nav>
+          <a href="index.html">Home</a> ｜ <a href="support.html">支持 (中文)</a> ｜
+          <a href="support-en.html">Support</a> ｜ <a href="../index.html">Back to home</a>
+        </nav>
+        <p>
+          This page is plain static HTML: no scripts, no cookies, no analytics, and no visitor logging. PMDir is
+          freeware with no features locked behind payment.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

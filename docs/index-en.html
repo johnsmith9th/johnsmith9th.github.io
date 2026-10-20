@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>johnsmith9th's tools — PMDir and Download2</title>
+    <meta
+      name="description"
+      content="Two small Windows tools that run on your own PC: PMDir tags local files and searches inside their text, Download2 files finished downloads into an archive folder. Free, with no feature limits."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap site__bar">
+        <a class="brandmark" href="index-en.html">
+          <img src="assets/pmdir/icon.png" width="32" height="32" alt="" decoding="async" />
+          <span>johnsmith9th</span>
+        </a>
+        <nav class="sitenav" aria-label="Site navigation">
+          <a href="#pmdir">PMDir</a>
+          <a href="#download2">Download2</a>
+          <a href="#download">Download</a>
+          <a href="#about">About</a>
+          <span class="lang">This page: <strong>English</strong> ｜ <a href="index.html">中文</a></span>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <section id="top" class="hero">
+        <p class="brand">johnsmith9th</p>
+        <h1>Two small tools that run on your own Windows PC</h1>
+        <p class="lede">
+          One keeps a project folder findable: it puts your own taxonomy on local files,
+          then searches inside the text of Office and PDF documents. The other files
+          finished downloads into an archive folder. Both run locally — no account,
+          no sign-in, nothing uploaded.
+        </p>
+        <p class="meta">
+          <span>Windows desktop apps</span> <span>Free, with no feature limits</span>
+          <span>PMDir v0.1.0</span> <span>Download2 v0.1.0</span>
+        </p>
+
+        <figure class="shotfig">
+          <img
+            class="shot shot--fill"
+            src="assets/pmdir/browse-en.png"
+            width="1258"
+            height="762"
+            fetchpriority="high"
+            decoding="async"
+            alt="PMDir's browse and tag view, with the interface in English: project folders and tag categories on the left, the file list in the middle, tag management on the right"
+          />
+          <figcaption>
+            PMDir's browse and tag view, shown with the interface in English. The projects and
+            files in this screenshot are sample data.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="pmdir" class="section">
+        <p class="eyebrow">Product 01</p>
+        <h2>
+          <img class="hicon" src="assets/pmdir/icon.png" width="40" height="40" alt="" decoding="async" />PMDir — local file tagging and full-text search
+        </h2>
+        <p class="lede">
+          Register the project folders you already have, lay a tag scheme of your own over
+          the file tree, turn tag conditions into queries, and go straight to the text
+          inside Office and PDF documents. Entirely offline: no network, no collection,
+          no upload.
+        </p>
+
+        <ul class="feats">
+          <li><strong>No network, no telemetry, no account.</strong> The UI loads no remote fonts and no remote images.</li>
+          <li><strong>Tags come in categories.</strong> Each category has a colour and a rank, can carry typed values, and can be made mutually exclusive.</li>
+          <li><strong>Queries combine with AND / OR / NOT</strong>, and the hit count moves as you change a condition.</li>
+          <li>
+            <strong>It searches inside documents.</strong> docx / xlsx / pptx / PDF / md / txt / csv,
+            plus the legacy .doc / .xls / .ppt formats — <strong>without Office installed</strong>.
+          </li>
+          <li><strong>Sorting matches Windows Explorer:</strong> pinyin order and natural number order.</li>
+          <li><strong>Tags survive copy and paste.</strong> The tags are still there afterwards.</li>
+          <li><strong>It exports CSV</strong>, with protection against spreadsheet formula injection.</li>
+          <li><strong>zip and 7z are built in</strong>, both ways (creating a 7z needs 7z.exe on your system).</li>
+          <li><strong>Delete goes to the Recycle Bin.</strong> There is no permanent delete.</li>
+          <li><strong>A damaged library or index repairs itself.</strong></li>
+          <li><strong>Three interface languages</strong> (Simplified Chinese, Traditional Chinese, English) and three themes (auto, light, dark).</li>
+          <li><strong>Collapse view</strong> folds the whole window into a single horizontal bar.</li>
+        </ul>
+
+        <p class="prose">
+          The "Indexed N%" figure is honest: it counts how many files have had their text
+          extracted, not the health of the index. When the index layer could not be opened,
+          it reads "Index —".
+        </p>
+
+        <div class="shotrow">
+          <figure class="shotfig">
+            <img
+              class="shot shot--fill shot--dark"
+              src="assets/pmdir/query.png"
+              width="1258"
+              height="762"
+              loading="lazy"
+              decoding="async"
+              alt="PMDir's query view: tag conditions combined with AND and OR, 5024 hits, with an index-status column on the right"
+            />
+            <figcaption>The query view: conditions combined with AND and OR, with a live hit count.</figcaption>
+          </figure>
+          <figure class="shotfig">
+            <img
+              class="shot shot--fill"
+              src="assets/pmdir/fulltext.png"
+              width="1258"
+              height="762"
+              loading="lazy"
+              decoding="async"
+              alt="PMDir's full-text search: one keyword, 5 hits, with the match highlighted in the name and type columns"
+            />
+            <figcaption>Full-text search looks inside the document, not just at the file name.</figcaption>
+          </figure>
+        </div>
+
+        <figure class="shotfig">
+          <img
+            class="shot shot--fill shot--dark"
+            src="assets/pmdir/settings-en.png"
+            width="1258"
+            height="762"
+            loading="lazy"
+            decoding="async"
+            alt="PMDir's settings page in English: the interface language is set to English and the appearance to Dark"
+          />
+          <figcaption>
+            Settings: the interface language is set to English here, and the appearance to Dark.
+            The same page also covers indexing options and the about box.
+          </figcaption>
+        </figure>
+
+        <p class="actions">
+          <a class="btn btn--primary" href="downloads-en.html#dl-pmdir">Get PMDir</a>
+          <a class="btn" href="pmdir/privacy-en.html">Privacy &amp; support</a>
+        </p>
+      </section>
+
+      <section id="download2" class="section">
+        <p class="eyebrow">Product 02</p>
+        <h2>Download2 — files itself away when the download finishes</h2>
+        <p class="lede">
+          A 236 × 40 bar keeps an eye on your Downloads folder. When a file has finished
+          downloading, it moves that file into an archive folder you choose, optionally
+          into a subfolder named after the download date. It is not a download manager,
+          and it does not speed anything up.
+        </p>
+
+        <div class="split">
+          <div>
+            <ul class="feats">
+              <li>
+                <strong>Seven conditions mean "this download finished":</strong> a quiet window
+                (900 ms by default, 200–5000 ms), two consecutive samples with the same size and
+                modification time, no live temporary path pointing at the file, a lock probe,
+                a denylist of temporary extensions (<code>.crdownload</code> <code>.part</code>
+                <code>.download</code> <code>.partial</code> <code>.tmp</code>
+                <code>.idmdownload</code> <code>.__partialdownload</code>, <code>~$*</code>),
+                a size greater than zero, and not being part of the baseline that already
+                existed at startup.
+              </li>
+              <li><strong>A half-finished file is never moved.</strong></li>
+              <li>
+                <strong>An existing file is never overwritten.</strong> <code>(1)</code> and
+                <code>(2)</code> are appended, up to 999 — a Windows rename silently eats the
+                target if it already exists.
+              </li>
+              <li>
+                <strong>A move on the same volume is two renames and copies zero bytes.</strong>
+                Across volumes it falls back to a copy, and the source is deleted only after a
+                byte-count check passes.
+              </li>
+              <li>
+                <strong>Crash-recoverable.</strong> An append-only <code>pending.jsonl</code> ledger
+                and a pure-function replay table re-adopt half-finished moves on the next launch.
+              </li>
+              <li>
+                <strong>Some places it refuses to file into:</strong> inside the Downloads folder,
+                a drive root, <code>\Windows</code>, and Program Files.
+              </li>
+              <li><strong>Corrupt settings are quarantined, never silently reset.</strong></li>
+              <li>
+                <strong>One window, total.</strong> Frameless, always on top, transparent, hidden
+                from the taskbar — and every setting saves itself, so there is no Save button.
+              </li>
+              <li><strong>English and Chinese, in a light or a dark theme.</strong></li>
+            </ul>
+
+            <p class="prose">
+              <strong>What it does not do:</strong> it has no download engine — no acceleration,
+              no BT, no ED2K — no resume for interrupted downloads, no browser extension, no
+              plugin system, no system tray icon, and no installer or auto-update yet.
+            </p>
+
+            <p class="actions">
+              <a class="btn btn--primary" href="downloads-en.html#dl-download2">Get Download2</a>
+            </p>
+          </div>
+
+          <div>
+            <figure class="shotfig">
+              <div class="shotbox">
+                <img
+                  src="assets/download2/panel-en.png"
+                  width="360"
+                  height="386"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Download2's general panel: target folder, browse and open buttons, subfolders by download date, toast duration, with the collapsed bar below"
+                />
+              </div>
+              <figcaption>The general panel, shown at its natural size.</figcaption>
+            </figure>
+
+            <figure class="shotfig">
+              <div class="shotbox">
+                <img
+                  src="assets/download2/advanced-en.png"
+                  width="360"
+                  height="386"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Download2's advanced panel: watched folder, settle time 900 ms, max wait 600 seconds, and interface language"
+                />
+              </div>
+              <figcaption>The advanced panel: a 900 ms settle time and a 600 second maximum wait.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <figure class="pillfig">
+          <div class="shotbox pillfig__box">
+            <img
+              src="assets/download2/pill-en.png"
+              width="236"
+              height="40"
+              loading="lazy"
+              decoding="async"
+              alt="Download2's collapsed status bar, 236 × 40 pixels"
+            />
+          </div>
+          <figcaption>Collapsed, the window is just this one bar: 236 × 40 pixels.</figcaption>
+        </figure>
+
+      </section>
+
+      <section id="download" class="section">
+        <h2>Download</h2>
+        <p class="lede">
+          Both apps are free and have no feature limits. There is no public download link
+          yet — until the packages are built and verified, the download page states the
+          status rather than linking to nothing.
+        </p>
+        <p class="actions">
+          <a class="btn btn--primary" href="downloads-en.html">Go to the download page</a>
+          <a class="btn" href="downloads.html">下载页（中文）</a>
+        </p>
+        <p class="meta">
+          <span>PMDir v0.1.0</span> <span>Download2 v0.1.0</span> <span>Free, with no feature limits</span>
+        </p>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About</h2>
+        <div class="prose">
+          <p>
+            These are my own tools (johnsmith9th). PMDir is for me — and for anyone else who
+            keeps a project folder full of hundreds of documents, plus the folders and tags
+            needed to keep track of them.
+          </p>
+          <div class="contact">
+            <p class="mail">Email: <a href="mailto:johnsmith9th@yahoo.com">johnsmith9th@yahoo.com</a></p>
+            <p>
+              This is the only way to reach me: no phone number, no live chat, no forum.
+              I read everything that arrives.
+            </p>
+          </div>
+          <p>
+            This site and every page on it are plain static HTML: no scripts, no cookies, no
+            analytics, and no remote fonts, images, or scripts. The screenshots and icons on
+            these pages are local files shipped with the site — downloaded and cached along
+            with it.
+          </p>
+        </div>
+      </section>
+
+      <footer class="doc">
+        <nav>
+          <a href="index-en.html">Home</a> ｜ <a href="downloads-en.html">Download</a> ｜
+          <a href="pmdir/privacy-en.html">PMDir privacy &amp; support</a> ｜
+          <a href="index.html">中文</a>
+        </nav>
+        <p>
+          Plain static HTML: no scripts, no cookies, no analytics, and no remote fonts, images,
+          or scripts. The screenshots and icons are local files. Both apps are free, with no
+          feature limits.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

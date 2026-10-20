@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PMDir 支持</title>
+    <meta
+      name="description"
+      content="PMDir 的支持渠道与常见问题：如何联系作者、来信该附什么、数据位置在哪里、索引与压缩包相关的常见现象怎么处理。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="doc">
+        <p class="brand">PMDir</p>
+        <h1>支持</h1>
+        <p class="meta"><span>更新日期 2026-10-19</span> <span>由作者本人答复</span></p>
+        <p class="lang">本页语言：<strong>中文</strong> ｜ <a href="support-en.html">English</a></p>
+      </header>
+
+      <h2>怎么联系</h2>
+      <div class="contact">
+        <p class="mail">
+          邮箱：<a href="mailto:johnsmith9th@yahoo.com">johnsmith9th@yahoo.com</a>
+        </p>
+        <p>
+          这是唯一的支持渠道：没有电话热线，没有在线聊天，也没有论坛。作者是单人开发，
+          <strong>不承诺答复时限</strong>；来信我都会看，只是可能需要几天。
+        </p>
+      </div>
+
+      <h3>来信时请尽量附上</h3>
+      <ul>
+        <li>
+          <strong>版本号</strong>：在应用内「设置 → 关于」那一行；
+        </li>
+        <li>
+          <strong>你用的是哪一形态</strong>：Microsoft Store 版、安装版还是便携版；
+        </li>
+        <li>
+          <strong>数据位置</strong>：「设置 → 数据位置」里显示的那个路径；
+        </li>
+        <li>
+          <strong>操作步骤与现象</strong>：点了什么、期望什么、实际看到什么；
+        </li>
+        <li>
+          <strong>日志</strong>：把 <code>&lt;数据位置&gt;\logs\</code> 里当天的那份文件作为附件发来。日志记的是程序自己的步骤，
+          会带上文件名与相对路径，但<strong>不含你的文件正文</strong>；少数异常情况下它会连完整路径一起记下，
+          所以发之前请自己打开看一眼。
+        </li>
+      </ul>
+
+      <div class="note">
+        <strong>请不要在来信里附上你的库文件（<code>meta.sqlite</code>）。</strong>里面是你的文件名与目录结构。
+        绝大多数问题靠日志加一段描述就能定位；确实需要库文件时，我会先问你是否愿意提供。
+      </div>
+
+      <h2>常见问题</h2>
+
+      <h3>我的数据到底放在哪里？</h3>
+      <p>
+        全部在「设置 → 数据位置」所示的目录下面：<code>data\</code> 是库，<code>index\</code> 是全文索引，
+        <code>logs\</code> 是日志。默认与程序放在一起；<strong>Microsoft Store 版</strong>因为商店的安装目录对应用只读，
+        默认落在 <code>%APPDATA%\PMDir</code>，设置页会说明这一次降级的原因。想改位置就在设置页里改。
+      </p>
+
+      <h3>卸载之后还剩什么？想彻底清干净怎么办？</h3>
+      <p>
+        <strong>Microsoft Store 版</strong>：商店卸载不会替应用删数据，它会留下两处，请手工删除：
+      </p>
+      <pre><code>%APPDATA%\PMDir          库（data\meta.sqlite）、全文索引、日志
+%USERPROFILE%\.pmdir     每本库各自的启动前备份，按库分目录</code></pre>
+      <p>
+        <strong>便携版</strong>：删掉整个程序目录。<strong>安装版</strong>：卸载程序会问你是否保留备份，并清掉
+        <code>~\.pmdir</code> 下的备份树；数据目录若被你指到过别处，那一处要你自己删。
+        卸载<strong>从不</strong>删除你项目里的原始文件。
+      </p>
+
+      <h3>列表里的「索引 N%」是什么？为什么一直不满？</h3>
+      <p>
+        那个百分比说的是<strong>有多少文件已经抽过正文</strong>，不是索引层的健康状态。不满 100% 通常有两种情况：
+        还有文件没抽完（重启应用会继续抽），或者有些文件本来就没有可抽取的正文（比如压缩包、扫描版图片、
+        没开自动抽取的类型）——这些不算故障。
+      </p>
+      <p>
+        如果那一格显示的是「<strong>索引 —</strong>」，说明索引层这次没能打开。这种情况下请打开
+        「设置 → 重建索引」，点<strong>开始重建</strong>；多数损坏在启动时会自动恢复（坏掉的索引目录会先改名留档
+        再重建），留档的那份占的盘要你自行清理。
+      </p>
+
+      <h3>为什么有的压缩包能读、有的要装 7-Zip？</h3>
+      <ul>
+        <li>
+          <strong>读取与解压</strong> zip / 7z 用的是程序内置的能力，<strong>不需要</strong>另外安装软件；
+        </li>
+        <li>
+          <strong>压缩成 7z</strong> 需要你的电脑上装有 7-Zip。没装时，这一项根本不会出现在菜单里（不是点了报错）；
+        </li>
+        <li>
+          <code>.rar</code> 目前不处理，所以不会给 rar 包画解压入口。
+        </li>
+      </ul>
+
+      <h3>解压时弹出来问密码，是出问题了吗？</h3>
+      <p>
+        不是。带密码的压缩包读不出里面的清单时，程序会先问一次密码来定落点；取消输入就等于放弃这一单。
+        解压撞上同名文件时也会问一次怎么处理，答案不会被记住——下一次撞上还是会问。
+      </p>
+
+      <h3>老的 Word / Excel / PPT（.doc / .xls / .ppt）能搜到内容吗？</h3>
+      <p>
+        可以。这几个 97-2003 格式由程序自带的引擎读取，不要求你装 Office。
+      </p>
+
+      <h3>启动时提示库文件损坏怎么办？</h3>
+      <p>
+        程序会尝试用最近一次备份（在 <code>~\.pmdir</code> 下，按库分目录）自动恢复。
+      </p>
+
+      <h3>PMDir 收费吗？</h3>
+      <p>
+        免费，功能不设任何限制。应用内有一个「请作者喝杯咖啡」的打赏页面，完全自愿，不打赏也不影响任何功能。
+      </p>
+
+      <h2>支持范围</h2>
+      <ul>
+        <li>答复缺陷报告、使用问题、以及界面文案（含繁体中文）里的错处；</li>
+        <li>
+          <strong>不代管你的数据</strong>：程序不联网，我无法访问你机器上的任何文件，也无法远程帮你修；
+        </li>
+        <li>不承诺新功能。功能请求我会看，但是否实现、何时实现都没有时间表。</li>
+      </ul>
+
+      <footer class="doc">
+        <nav>
+          <a href="index.html">首页</a> ｜ <a href="privacy.html">隐私政策</a> ｜
+          <a href="privacy-en.html">Privacy Policy (English)</a> ｜ <a href="../index.html">返回首页</a>
+        </nav>
+        <p>
+          PMDir 按「现状」提供，不提供任何明示或默示的担保。本页是纯静态 HTML：没有脚本、没有 Cookie、没有分析代码。
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

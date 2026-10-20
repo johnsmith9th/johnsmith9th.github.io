@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PMDir 隐私政策</title>
+    <meta
+      name="description"
+      content="PMDir 是一款全程离线的本地文件管理工具：不联网、不收集、不上传任何数据。本政策说明你的文件与元数据存在哪里、不包含什么、以及如何彻底删除。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="doc">
+        <p class="brand">PMDir</p>
+        <h1>隐私政策</h1>
+        <p class="meta">
+          <span>生效日期 2026-10-19</span> <span>适用于 PMDir 全部版本</span>
+        </p>
+        <p class="lang">本页语言：<strong>中文</strong> ｜ <a href="privacy-en.html">English</a></p>
+      </header>
+
+      <p class="lede">
+        PMDir 是一款<strong>全程离线</strong>的本地文件管理工具。它不联网、不收集、不上传，也没有账号。
+        你的文件名、目录结构和检索正文只写在你自己电脑磁盘上的那一本库文件里。
+      </p>
+
+      <h2>1. 不会有数据离开你的电脑</h2>
+      <p>具体来说，PMDir 不做下面任何一件事：</p>
+      <ul>
+        <li>不发送遥测、崩溃报告或使用统计；</li>
+        <li>不向任何服务器请求数据，也不接收推送；</li>
+        <li>界面所需的全部样式与脚本都打在程序里，<strong>不加载远程字体、远程图片或第三方 CDN 资源</strong>；</li>
+        <li>不含广告 SDK，不含分析 SDK，不含任何跟踪代码；</li>
+        <li>不注册、不登录、不建云端账号，因此也没有供我们查询的用户档案；</li>
+        <li>抽取文件正文、建立索引、检索，全部在你本机进行——正文不会被发到任何地方。</li>
+      </ul>
+
+      <h2>2. 数据存在哪里</h2>
+      <p>PMDir 的所有数据都在你自己指定的目录里，一共三块：</p>
+      <table>
+        <thead>
+          <tr>
+            <th>目录</th>
+            <th>里面是什么</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>data\</code></td>
+            <td>
+              元数据库（<code>meta.sqlite</code>）：项目文件夹的路径、你扫描到的文件名与大小与修改时间、
+              你打的标签、以及每个文件的正文抽取状态。
+            </td>
+          </tr>
+          <tr>
+            <td><code>index\</code></td>
+            <td>正文的本地倒排索引，用于全文检索。删掉它可以重建，不影响你的原始文件。</td>
+          </tr>
+          <tr>
+            <td><code>logs\</code></td>
+            <td>按日滚动的运行日志，只写在你本机，不会自动发出。</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        这三块的<strong>根目录</strong>默认与程序文件放在一起（便携形态：与 <code>pmdir.exe</code> 同级的
+        <code>data\</code>、<code>index\</code>、<code>logs\</code>），你可以在「设置 → 数据位置」里改到任何你自己
+        有权限的目录。<strong>Microsoft Store 版</strong>因为商店的安装目录对应用只读，默认落在
+        <code>%APPDATA%\PMDir</code>；发生这一次降级时，设置页会直接告诉你原因。
+      </p>
+
+      <p>
+        每次成功启动后，程序会在同机的
+        <code>~/.pmdir/&lt;库位置名&gt;/</code> 留一份库文件备份，用来在你自己的库文件损坏时恢复。
+        它是本地复制，<strong>不上云</strong>。
+      </p>
+
+      <h2>3. 明确没有的能力（请据此安排你的习惯）</h2>
+      <ul>
+        <li>
+          <strong>库文件不加密。</strong>它是一本普通的本地数据库文件，能读到那个文件的人就能读到里面的文件名与路径。
+          请把数据目录放在你自己的账户下，或用全盘/卷加密（如 BitLocker）保护。
+        </li>
+        <li><strong>没有云同步、没有远程查找、没有远程删除。</strong>换电脑要自己拷数据目录。</li>
+        <li>
+          <strong>你的原始文件不会被 PMDir 上传或发送给任何人。</strong>删除操作走系统回收站，不经过网络。
+        </li>
+      </ul>
+
+      <h2>4. 加密压缩包里输入的密码</h2>
+      <p>
+        当你解压或读取一个带密码的压缩包时，PMDir 会在需要的那一步向你索取密码。
+        <strong>这个密码只在本次操作中使用，不写进库文件，也不写进日志。</strong>
+      </p>
+
+      <h2>5. 第三方组件与你的系统环境</h2>
+      <p>
+        PMDir 使用了若干开源组件（界面框架、数据库引擎、全文检索、解压与老式文档格式读取等）。
+        完整清单与各自许可证在应用内的「致谢」页面，以及安装目录里的
+        <code>THIRD_PARTY_NOTICES.txt</code>。这些组件都运行在你本机，<strong>不会因为 PMDir 而向任何地方上报数据</strong>。
+      </p>
+      <div class="note">
+        两点与系统有关、不由 PMDir 控制的事实，如实写在这儿：
+        <strong>Microsoft Store 自己会检查应用更新并验证许可证</strong>；PMDir 的界面由
+        <strong>Windows 的 WebView2 运行期</strong>渲染，而该运行期由 Microsoft 维护并可能自行更新。
+        这两件事发生在系统层面，不由 PMDir 发起，也不涉及 PMDir 里的任何用户数据。
+      </div>
+
+      <h2>6. 想彻底删除怎么办</h2>
+      <p>
+        卸载 PMDir 不会碰你自己的文件，它可能留下的只有那本库、索引、日志和备份。
+        <strong>Microsoft Store 版：</strong>商店卸载不会替我们删数据，要彻底清除请手工删除这两处：
+      </p>
+      <pre><code>%APPDATA%\PMDir          库（data\meta.sqlite）、全文索引、日志
+%USERPROFILE%\.pmdir     每本库各自的启动前备份，按库分目录</code></pre>
+      <p>
+        <strong>便携版：</strong>删掉整个程序目录即可。<strong>安装版（NSIS）：</strong>卸载程序会先问你是否保留备份，
+        并删除 <code>~\.pmdir</code> 下的备份树；如果你把数据目录指到了别处，那一处要你手工删。
+      </p>
+      <p>删除这些目录之后，关于你的一切记录就不存在了——我们从来没有一份副本。</p>
+
+      <h2>7. 本政策的变更</h2>
+      <p>
+        本页顶部的日期就是它的版本。政策如有变化，我们会更新这一页；
+        因为 PMDir 不联网，<strong>我们无法也不会在你机器上弹出「政策已更新」的提示</strong>，请你自己在需要时回来看。
+      </p>
+
+      <h2>8. 联系我们</h2>
+      <div class="contact">
+        <p>作者：johnsmith9th</p>
+        <p class="mail">
+          邮箱：<a href="mailto:johnsmith9th@yahoo.com">johnsmith9th@yahoo.com</a>
+        </p>
+        <p>
+          与隐私有关的问题（例如「这条是不是写错了」）欢迎直接来信。
+          <a href="support.html">支持页</a>里写了来信时最好一并附上什么。
+        </p>
+      </div>
+
+      <footer class="doc">
+        <nav>
+          <a href="index.html">首页</a> ｜ <a href="support.html">支持</a> ｜
+          <a href="support-en.html">Support (English)</a> ｜ <a href="../index.html">返回首页</a>
+        </nav>
+        <p>
+          本页本身是纯静态 HTML：没有脚本、没有 Cookie、没有分析代码，也不会记录访问者。
+          PMDir 为免费软件，功能不设限制。
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

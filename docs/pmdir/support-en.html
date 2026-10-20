@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PMDir Support</title>
+    <meta
+      name="description"
+      content="How to get support for PMDir: how to contact the author, what to include in a message, where your data lives, and how to handle index and archive behaviour."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="doc">
+        <p class="brand">PMDir</p>
+        <h1>Support</h1>
+        <p class="meta">
+          <span>Updated 2026-10-19</span> <span>Answered by the author</span>
+        </p>
+        <p class="lang">Language: <strong>English</strong> ｜ <a href="support.html">中文</a></p>
+      </header>
+
+      <h2>How to reach me</h2>
+      <div class="contact">
+        <p class="mail">
+          Email: <a href="mailto:johnsmith9th@yahoo.com">johnsmith9th@yahoo.com</a>
+        </p>
+        <p>
+          This is the only support channel: no phone line, no live chat, no forum. PMDir is a one-person project,
+          and I <strong>do not promise a response time</strong>. I read everything that arrives; it can take a few days.
+        </p>
+      </div>
+
+      <h3>Please include in your message</h3>
+      <ul>
+        <li>the <strong>version number</strong> — shown on <em>Settings → About</em>;</li>
+        <li>
+          <strong>which edition you are using</strong>: Microsoft Store, installer or portable;
+        </li>
+        <li>
+          your <strong>data location</strong> — the path shown on <em>Settings → Data location</em>;
+        </li>
+        <li>what you clicked, what you expected, and what actually happened;</li>
+        <li>
+          the log file for that day, attached from <code>&lt;data location&gt;\logs\</code>. Logs record the program's
+          own steps only — <strong>they never contain your document text</strong>, and you can open one and check
+          before sending it.
+        </li>
+      </ul>
+
+      <div class="note">
+        <strong>Please do not attach your database file (<code>meta.sqlite</code>) to a first message.</strong> It
+        contains your file names and folder structure. A log plus a description is enough in most cases; if I really
+        need the database, I will ask you first.
+      </div>
+
+      <h2>Frequently asked</h2>
+
+      <h3>Where exactly is my data?</h3>
+      <p>
+        Everything shown on <em>Settings → Data location</em>: <code>data\</code> holds the database,
+        <code>index\</code> the full-text index, <code>logs\</code> the logs. By default these sit next to the program
+        itself. The <strong>Microsoft Store edition</strong> installs to a folder that is read-only for the app, so
+        there it defaults to <code>%APPDATA%\PMDir</code>, and the Settings page says why. You can move it to any
+        folder you have access to.
+      </p>
+
+      <h3>What survives an uninstall? How do I remove everything?</h3>
+      <p>
+        <strong>Microsoft Store edition:</strong> the Store does not run our uninstaller, so two locations remain and
+        you delete them by hand:
+      </p>
+      <pre><code>%APPDATA%\PMDir          database (data\meta.sqlite), full-text index, logs
+%USERPROFILE%\.pmdir     per-library pre-start backups</code></pre>
+      <p>
+        <strong>Portable edition:</strong> delete the program folder.
+        <strong>Installer edition:</strong> the uninstaller asks whether to keep backups and then removes the backup
+        tree under <code>~\.pmdir</code>; if you had pointed the data directory elsewhere, delete that yourself.
+        Uninstalling <strong>never</strong> deletes the original files in your projects.
+      </p>
+
+      <h3>What does "Indexed N%" mean, and why does it never reach 100%?</h3>
+      <p>
+        That number counts <strong>how many files have had their text extracted</strong>; it is not a health check of
+        the index itself. Below 100% usually means one of two things: some files have not been extracted yet
+        (restarting the app continues the queue), or some files have no extractable text at all — archives, scanned
+        images, or file types where automatic extraction is off. Neither is a fault.
+      </p>
+      <p>
+        If that field shows "<strong>Index —</strong>" instead of a percentage, the index layer could not be opened
+        this run. Open <em>Settings → Rebuild index</em> and press <em>Start rebuild</em>. Most damage repairs itself
+        at startup: a broken index directory is renamed and kept, then rebuilt, and the space that kept copy uses is
+        yours to clean up.
+      </p>
+
+      <h3>Why do some archives need 7-Zip installed and others do not?</h3>
+      <ul>
+        <li>
+          <strong>Reading and extracting</strong> zip / 7z uses built-in code — <strong>no extra software required</strong>;
+        </li>
+        <li>
+          <strong>Creating a 7z</strong> requires 7-Zip to be installed on your computer. If it is not, that menu
+          entry simply does not appear (it is not a button that fails when you click it);
+        </li>
+        <li><code>.rar</code> is not supported, so no extract action is offered for rar files.</li>
+      </ul>
+
+      <h3>It asked me for a password while extracting — is something wrong?</h3>
+      <p>
+        No. When a protected archive does not expose its contents list, PMDir asks once for the password to decide
+        where to put things; cancelling that dialog abandons the job. If extracted names collide with what is already
+        there, it asks once how to resolve the clash — the answer is not remembered, so it will ask again next time.
+      </p>
+
+      <h3>Can it search inside old .doc / .xls / .ppt files?</h3>
+      <p>
+        Yes. Those Office 97-2003 formats are read by an engine included with PMDir; you do not need Office installed.
+      </p>
+
+      <h3>It says my library is damaged at startup.</h3>
+      <p>
+        PMDir then tries to recover automatically from the most recent local backup, kept under
+        <code>~\.pmdir</code> in a folder per library.
+      </p>
+
+      <h3>Is PMDir free?</h3>
+      <p>
+        Yes — freeware, with every feature unlocked. There is an optional "buy the author a coffee" page inside the
+        app; it is entirely voluntary and nothing is limited if you skip it.
+      </p>
+
+      <h2>What support covers</h2>
+      <ul>
+        <li>bug reports, usage questions, and wording mistakes in any of the three UI languages;</li>
+        <li>
+          <strong>I cannot touch your data for you</strong>: PMDir has no network access, so I cannot reach your
+          machine, look at your files, or fix anything remotely;
+        </li>
+        <li>
+          no commitment on features. I read every request; whether and when something gets built has no schedule.
+        </li>
+      </ul>
+
+      <footer class="doc">
+        <nav>
+          <a href="index.html">Home</a> ｜ <a href="privacy-en.html">Privacy Policy</a> ｜
+          <a href="privacy.html">隐私政策 (中文)</a> ｜ <a href="../index.html">Back to home</a>
+        </nav>
+        <p>
+          PMDir is provided "as is", without warranty of any kind. This page is plain static HTML: no scripts, no
+          cookies, no analytics.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
