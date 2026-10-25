@@ -439,6 +439,14 @@ a.card:hover {
   margin-right: 0.5rem;
 }
 
+.card .hicon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  vertical-align: -0.35em;
+  margin-right: 0.4rem;
+}
+
 .feats {
   display: grid;
   gap: 0.25rem 2rem;
