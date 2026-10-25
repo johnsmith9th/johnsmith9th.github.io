@@ -6,7 +6,7 @@
     <title>Download — PMDir and Download2</title>
     <meta
       name="description"
-      content="Download status for PMDir and Download2. Both apps are free with no feature limits; the public download links are not available yet."
+      content="Download status for PMDir and Download2. Both apps are free with no feature limits; Download2 v0.1.0 is available as a portable zip, while the public PMDir link is still pending."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -30,20 +30,20 @@
       <p class="brand">johnsmith9th</p>
       <h1>Download</h1>
       <p class="meta">
-        <span>Status updated 2026-10-20</span> <span>Covers PMDir and Download2</span>
+        <span>Status updated 2026-10-26</span> <span>Covers PMDir and Download2</span>
       </p>
       <p class="lang">This page: <strong>English</strong> ｜ <a href="downloads.html">中文</a></p>
 
       <p class="lede">
         PMDir and Download2 are both free, with no feature limits; donations are optional.
-        There is no public download link yet — both programs are still being packaged and
+        Download2 v0.1.0 is packaged and ready to download; PMDir is still being packaged and
         verified. This page states the status rather than linking to nothing.
       </p>
 
       <div class="note">
-        This is a placeholder page. When the real download links are ready they will replace
-        the pending buttons below, and this page will stop being a placeholder. In the
-        meantime, if you need a build sooner, write to me.
+        The PMDir card below is still a placeholder. When its download address is ready it will
+        replace the pending button in the same place. Download2 you do not have to wait for — it
+        is linked below. If you need a PMDir build sooner, write to me.
       </div>
 
       <div class="cards">
@@ -59,38 +59,47 @@
           </p>
           <!-- TODO-RELEASE-URL: replace the pending block below with
                <a class="btn btn--primary" href="PMDIR_RELEASE_URL">Download PMDir v0.1.0</a> -->
-          <p>
+          <p class="actions">
             <span class="btn btn--pending" data-release="TODO-RELEASE-URL" aria-disabled="true">Download coming soon</span>
+            <a class="btn" href="pmdir/privacy-en.html">Privacy policy &amp; support</a>
           </p>
-          <p><a class="btn" href="pmdir/privacy-en.html">Privacy policy &amp; support</a></p>
         </div>
 
-        <div class="card card--pending" id="dl-download2">
+        <div class="card" id="dl-download2">
           <h2>Download2 <span class="ver">v0.1.0</span></h2>
           <p class="meta">
             <span>Windows desktop app</span> <span>Files finished downloads into an archive folder</span>
+            <span>Portable zip (x64, about 4.2 MB)</span>
           </p>
-          <p class="pending"><span class="pending__dot"></span>Installer pending</p>
           <p class="card__note">
-            There is no installer and no auto-update yet. Interface screenshots are on the
-            homepage.
+            Unzip it and run <code>download2.exe</code>. There is no installer and no
+            auto-update: when a new version comes out, download it and overwrite the old folder.
+            The interface needs the WebView2 Runtime on the machine (usually already present on
+            Windows 10 and 11, and wherever Edge is installed).
           </p>
-          <!-- TODO-RELEASE-URL: replace the pending block below with
-               <a class="btn btn--primary" href="DOWNLOAD2_RELEASE_URL">Download Download2 v0.1.0</a> -->
-          <p>
-            <span class="btn btn--pending" data-release="TODO-RELEASE-URL" aria-disabled="true">Download coming soon</span>
+          <p class="actions">
+            <a
+              class="btn btn--primary"
+              href="https://github.com/johnsmith9th/download2/releases/download/v0.1.0/download2-0.1.0-windows-x64.zip"
+              >Download Download2 v0.1.0</a
+            >
+            <a
+              class="btn"
+              href="https://github.com/johnsmith9th/download2/releases/tag/v0.1.0"
+              >Release page (with the SHA-256 file)</a
+            >
           </p>
         </div>
       </div>
 
-      <h2>To get a build now</h2>
+      <h2>To get PMDir now</h2>
       <div class="contact">
         <p class="mail">
           Email: <a href="mailto:johnsmith9th@yahoo.com?subject=PMDir%20download%20request">johnsmith9th@yahoo.com</a>
         </p>
         <p>
-          Just say which one you want and what you want to use it for. I do not promise a
-          response time, but I read every message.
+          Download2 needs no email — just download it. For PMDir, say what you want to use it
+          for. I do not promise a response time, but I read every message.
         </p>
       </div>
 

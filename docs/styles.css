@@ -327,8 +327,13 @@ a.card:hover {
   color: var(--ink-soft);
 }
 
-.card--pending .card__note {
+.card .card__note {
   margin: 0.5rem 0 0.75rem;
+}
+
+/* 卡片里的按钮组不要继承 .actions 在正文里的那套上下留白。 */
+.card .actions {
+  margin: 0;
 }
 
 .card .ver {

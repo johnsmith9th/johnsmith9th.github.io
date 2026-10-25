@@ -6,7 +6,7 @@
     <title>下载 — PMDir 与 Download2</title>
     <meta
       name="description"
-      content="PMDir 与 Download2 的下载状态。两个软件都是免费的，功能不设任何限制；目前公开下载链接待提供。"
+      content="PMDir 与 Download2 的下载状态。两个软件都是免费的，功能不设任何限制；Download2 v0.1.0 已提供便携版压缩包下载，PMDir 的公开链接待提供。"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -30,19 +30,20 @@
       <p class="brand">johnsmith9th</p>
       <h1>下载</h1>
       <p class="meta">
-        <span>状态更新 2026-10-20</span> <span>适用于 PMDir 与 Download2</span>
+        <span>状态更新 2026-10-26</span> <span>适用于 PMDir 与 Download2</span>
       </p>
       <p class="lang">本页语言：<strong>中文</strong> ｜ <a href="downloads-en.html">English</a></p>
 
       <p class="lede">
         PMDir 与 Download2 都是免费软件，功能不设任何限制，打赏自愿。
-        但现在还没有公开的下载链接：两个程序都还在打包和校验的阶段。
+        Download2 v0.1.0 已经打好包、可以直接下载了；PMDir 还在打包和校验的阶段。
         这一页写的是状态，不是死链接。
       </p>
 
       <div class="note">
-        这一页是占位页。等真正的下载地址准备好，我会在同一个位置换上去，
-        这里的按钮也会同时变成真的下载按钮。在此之前，想先要一份的人可以直接写信给我。
+        PMDir 那一栏还是占位。等它的下载地址准备好，我会在同一个位置换上去，
+        按钮也会同时变成真的下载按钮。在那之前想先要一份 PMDir 的人可以直接写信给我；
+        Download2 不用等，下面就是。
       </div>
 
       <div class="cards">
@@ -55,34 +56,46 @@
           <p class="card__note">有 Microsoft Store 版、NSIS 安装版与便携版三种形态；本站暂不提供直接下载。</p>
           <!-- TODO-RELEASE-URL: 发布时把下面的 .pending 整块换成
                <a class="btn btn--primary" href="PMDIR_RELEASE_URL">下载 PMDir v0.1.0</a> -->
-          <p>
+          <p class="actions">
             <span class="btn btn--pending" data-release="TODO-RELEASE-URL" aria-disabled="true">下载即将开放</span>
+            <a class="btn" href="pmdir/index.html">隐私政策与支持</a>
           </p>
-          <p><a class="btn" href="pmdir/index.html">隐私政策与支持</a></p>
         </div>
 
-        <div class="card card--pending" id="dl-download2">
+        <div class="card" id="dl-download2">
           <h2>Download2 <span class="ver">v0.1.0</span></h2>
           <p class="meta">
             <span>Windows 桌面应用</span> <span>下载完成的文件自动归档</span>
+            <span>便携版 zip（x64，约 4.2 MB）</span>
           </p>
-          <p class="pending"><span class="pending__dot"></span>安装包待提供</p>
-          <p class="card__note">目前还没有安装包，也没有自动更新；界面截图见首页。</p>
-          <!-- TODO-RELEASE-URL: 发布时把下面的 .pending 整块换成
-               <a class="btn btn--primary" href="DOWNLOAD2_RELEASE_URL">下载 Download2 v0.1.0</a> -->
-          <p>
-            <span class="btn btn--pending" data-release="TODO-RELEASE-URL" aria-disabled="true">下载即将开放</span>
+          <p class="card__note">
+            解压后双击 <code>download2.exe</code> 就能跑。没有安装程序，也没有自动更新：
+            出新版本时重新下载一份、盖掉旧目录就行。界面上要显示内容，机器上得有
+            WebView2 Runtime（Win10 / Win11 一般自带，装了 Edge 的也有）。
+          </p>
+          <p class="actions">
+            <a
+              class="btn btn--primary"
+              href="https://github.com/johnsmith9th/download2/releases/download/v0.1.0/download2-0.1.0-windows-x64.zip"
+              >下载 Download2 v0.1.0</a
+            >
+            <a
+              class="btn"
+              href="https://github.com/johnsmith9th/download2/releases/tag/v0.1.0"
+              >发布页（含 SHA-256 校验文件）</a
+            >
           </p>
         </div>
       </div>
 
-      <h2>先拿到一份</h2>
+      <h2>先拿到 PMDir</h2>
       <div class="contact">
         <p class="mail">
           邮箱：<a href="mailto:johnsmith9th@yahoo.com?subject=PMDir%20%E4%B8%8B%E8%BD%BD%E6%84%8F%E5%90%91">johnsmith9th@yahoo.com</a>
         </p>
         <p>
-          写邮件说明你想要哪一个、用来做什么就行。我不承诺答复时限，但每封都会看。
+          Download2 直接下载就行，不用写信。想要 PMDir 的，写邮件说明你想用它做什么即可。
+          我不承诺答复时限，但每封都会看。
         </p>
       </div>
 
